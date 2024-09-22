@@ -29,8 +29,8 @@ WHERE length > (SELECT AVG(`length` ) FROM film)
 
 Получите информацию, за какой месяц была получена наибольшая сумма платежей, и добавьте информацию по количеству аренд за этот месяц.
 ```
-SELECT DATE_FORMAT(payment_date, '%M') AS Дата, COUNT(payment_id) AS Платежи, SUM(amount) AS Сумма FROM payment
-GROUP BY DATE_FORMAT(payment_date, '%M')
+SELECT DATE_FORMAT(payment_date, '%M %Y') AS Дата, COUNT(payment_id) AS Платежи, SUM(amount) AS Сумма FROM payment
+GROUP BY DATE_FORMAT(payment_date, '%M %Y')
 ORDER BY SUM(amount) DESC
 LIMIT 1
 ```
